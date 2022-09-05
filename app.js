@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
   res.status(200).json({ message: 'hello from the server', app: 'Natours' });
 });
 
-app.send('/', (req, res) => {
+app.post('/', (req, res) => {
   res.send('you can post to this endpoint');
 });
 
