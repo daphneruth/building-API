@@ -23,12 +23,23 @@ const getAllTours = (req, res) => {
     status: 'success',
     result: tours.length,
     data: {
+      tours,
+    },
+  });
+};
+
+const getTour = (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    result: tours.length,
+    data: {
       tour,
     },
   });
 };
 
-app.get('/api/v1/tours/id');
+app.get('/api/v1/tours', getAllTours);
+app.get('/api/v1/tours/id', getTour);
 
 app.post('/api/v1/tours', (req, res) => {
   //console.log(req.body);
