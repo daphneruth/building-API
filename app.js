@@ -38,11 +38,7 @@ const getTour = (req, res) => {
     },
   });
 };
-
-app.get('/api/v1/tours', getAllTours);
-app.get('/api/v1/tours/id', getTour);
-
-app.post('/api/v1/tours', (req, res) => {
+const createTour = (req, res) => {
   //console.log(req.body);
 
   const newId = tours[tours.length - 1].id + 1;
@@ -62,7 +58,11 @@ app.post('/api/v1/tours', (req, res) => {
       });
     }
   );
-});
+};
+app.get('/api/v1/tours', getAllTours);
+app.get('/api/v1/tours/id', getTour);
+
+app.post('/api/v1/tours', createTour);
 
 app.patch('/api/v1/tours', (req, res) => {
   if (req.params.id * 1 > tours.length) {
