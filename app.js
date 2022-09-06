@@ -26,7 +26,10 @@ app.get('/api/v1/users', (req, res) => {
   });
 });
 
-app.post('/api/v1/tours', (req, res) => {});
+app.post('/api/v1/tours', (req, res) => {
+  console.log(req.body);
+  res.end(tours);
+});
 const port = 3000;
 
 app.listen(port, () => {
