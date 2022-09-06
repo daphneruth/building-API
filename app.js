@@ -15,8 +15,6 @@ app.use(express.json());
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
 );
-const id = req.params.id * 1;
-const tour = tours.find((el) => el.id === id);
 
 const getAllTours = (req, res) => {
   res.status(200).json({
@@ -29,6 +27,9 @@ const getAllTours = (req, res) => {
 };
 
 const getTour = (req, res) => {
+  const id = req.params.id * 1;
+  const tour = tours.find((el) => el.id === id);
+
   res.status(200).json({
     status: 'success',
     result: tours.length,
