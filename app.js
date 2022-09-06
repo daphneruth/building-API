@@ -15,20 +15,10 @@ app.use(express.json());
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
 );
+const id = req.params.id * 1;
+const tour = tours.find((el) => el.id === id);
 
-app.get('/api/v1/tours/id', (req, res) => {
-  console.log(req.params);
-
-  const id = req.params.id * 1;
-  const tour = tours.find((el) => el.id === id);
-
-  if (!tour) {
-    return res.status(404).json({
-      status: 'fail',
-      message: 'invalid id',
-    });
-  }
-
+const getAllTours = (req, res) => {
   res.status(200).json({
     status: 'success',
     result: tours.length,
@@ -36,7 +26,9 @@ app.get('/api/v1/tours/id', (req, res) => {
       tour,
     },
   });
-});
+};
+
+app.get('/api/v1/tours/id');
 
 app.post('/api/v1/tours', (req, res) => {
   //console.log(req.body);
