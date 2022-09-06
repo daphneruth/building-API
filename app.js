@@ -4,6 +4,8 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
+app.use(req, res, (next) => {});
+
 // app.get('/', (req, res) => {
 //   res.status(200).json({ message: 'hello from the server', app: 'Natours' });
 // });
