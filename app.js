@@ -4,11 +4,11 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
-app.use(req, res, (next) => {
+app.use((req, res, next) => {
   console.log('hello from middleware');
   next();
 });
-app.use(req, res, (next) => {
+app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
   next();
 });
@@ -99,6 +99,13 @@ const deleteTour = (req, res) => {
     data: null,
   });
 };
+
+const getAllUsers = (req, res) => {
+  res.status(500).json({
+    status: 'error',
+    message: 'this route is not yet defined',
+  });
+};
 // app.get('/api/v1/tours', getAllTours);
 // app.get('/api/v1/tours/id', getTour);
 
@@ -109,12 +116,15 @@ const deleteTour = (req, res) => {
 // app.delete('/api/v1/tours', deleteTour);
 
 app.route('/api/v1/tours').get(getAllTours).post(createTour);
+app.route('/api/v1/tours/id').get(getTour).patch(updateTour).delete(deleteTour);
+
+app.route('/api/v1/users').get(getAllUsers).post(updateAllUsers);
+
 app
-  .route('/api/v1/tours/id')
-  .get(getTour)
-  .post()
-  .patch(updateTour)
-  .delete(deleteTour);
+  .route('/api/v1/users/:id')
+  .get(getUser)
+  .patch(updateUser)
+  .delete(deleteUser);
 
 const port = 3000;
 
