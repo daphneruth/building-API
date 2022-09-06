@@ -8,7 +8,10 @@ app.use(req, res, (next) => {
   console.log('hello from middleware');
   next();
 });
-
+app.use(req, res, (next) => {
+  req.requestTime = new Date().toISOString();
+  next();
+});
 // app.get('/', (req, res) => {
 //   res.status(200).json({ message: 'hello from the server', app: 'Natours' });
 // });
