@@ -25,8 +25,10 @@ const tours = JSON.parse(
 );
 
 const getAllTours = (req, res) => {
+  console.log(req.requestTime);
   res.status(200).json({
     status: 'success',
+    requestAt: req.requestTime,
     result: tours.length,
     data: {
       tours,
