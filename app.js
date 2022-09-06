@@ -45,7 +45,6 @@ app.post('/api/v1/tours', (req, res) => {
       });
     }
   );
-  res.send('done');
 });
 const port = 3000;
 
