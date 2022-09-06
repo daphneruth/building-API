@@ -130,6 +130,8 @@ const deleteUser = (req, res) => {
     message: 'this route is not yet defined',
   });
 };
+
+//  ROUTES
 // app.get('/api/v1/tours', getAllTours);
 // app.get('/api/v1/tours/id', getTour);
 
