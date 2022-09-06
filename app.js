@@ -141,6 +141,8 @@ const deleteUser = (req, res) => {
 
 // app.delete('/api/v1/tours', deleteTour);
 
+const tourRouter = express.Router();
+
 app.route('/api/v1/tours').get(getAllTours).post(createTour);
 app.route('/api/v1/tours/id').get(getTour).patch(updateTour).delete(deleteTour);
 
