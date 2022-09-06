@@ -75,14 +75,8 @@ const updateTour = (req, res) => {
     },
   });
 };
-app.get('/api/v1/tours', getAllTours);
-app.get('/api/v1/tours/id', getTour);
 
-app.post('/api/v1/tours', createTour);
-
-app.patch('/api/v1/tours', updateTour);
-
-app.delete('/api/v1/tours', (req, res) => {
+const deleteTour = (req, res) => {
   if (req.params.id * 1 > tours.length) {
     return res.status(404).json({
       status: 'fail',
@@ -94,7 +88,15 @@ app.delete('/api/v1/tours', (req, res) => {
     status: 'fail',
     data: null,
   });
-});
+};
+app.get('/api/v1/tours', getAllTours);
+app.get('/api/v1/tours/id', getTour);
+
+app.post('/api/v1/tours', createTour);
+
+app.patch('/api/v1/tours', updateTour);
+
+app.delete('/api/v1/tours', deleteTour);
 
 const port = 3000;
 
