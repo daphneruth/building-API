@@ -99,7 +99,12 @@ const deleteTour = (req, res) => {
 // app.delete('/api/v1/tours', deleteTour);
 
 app.route('/api/v1/tours').get(getAllTours).post(createTour);
-app.route('/api/v1/tours/id').patch(updateTour).delete(deleteTour);
+app
+  .route('/api/v1/tours/id')
+  .get(getTour)
+  .post()
+  .patch(updateTour)
+  .delete(deleteTour);
 
 const port = 3000;
 
