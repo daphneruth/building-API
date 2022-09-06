@@ -141,6 +141,8 @@ const deleteUser = (req, res) => {
 
 // app.delete('/api/v1/tours', deleteTour);
 app.use('/api/v1/tours', tourRouter);
+app.use('/api/v1/users', userRouter);
+
 const tourRouter = express.Router();
 const userRouter = express.Router();
 
