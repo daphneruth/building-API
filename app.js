@@ -106,6 +106,30 @@ const getAllUsers = (req, res) => {
     message: 'this route is not yet defined',
   });
 };
+const getUser = (req, res) => {
+  res.status(500).json({
+    status: 'error',
+    message: 'this route is not yet defined',
+  });
+};
+const createUser = (req, res) => {
+  res.status(500).json({
+    status: 'error',
+    message: 'this route is not yet defined',
+  });
+};
+const updateUser = (req, res) => {
+  res.status(500).json({
+    status: 'error',
+    message: 'this route is not yet defined',
+  });
+};
+const deleteUser = (req, res) => {
+  res.status(500).json({
+    status: 'error',
+    message: 'this route is not yet defined',
+  });
+};
 // app.get('/api/v1/tours', getAllTours);
 // app.get('/api/v1/tours/id', getTour);
 
@@ -118,7 +142,7 @@ const getAllUsers = (req, res) => {
 app.route('/api/v1/tours').get(getAllTours).post(createTour);
 app.route('/api/v1/tours/id').get(getTour).patch(updateTour).delete(deleteTour);
 
-app.route('/api/v1/users').get(getAllUsers).post(updateAllUsers);
+app.route('/api/v1/users').get(getAllUsers).post(createUser);
 
 app
   .route('/api/v1/users/:id')
