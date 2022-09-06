@@ -16,7 +16,8 @@ const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
 );
 
-app.get('/api/v1/users', (req, res) => {
+app.get('/api/v1/tours', (req, res) => {
+  console.log(req.body);
   res.status(200).json({
     status: 'success',
     result: tours.length,
@@ -33,6 +34,7 @@ app.post('/api/v1/tours', (req, res) => {
   const newTour = Object.assign({ id: newId }, req.body);
 
   tours.push(newTour);
+
   fs.writeFile(
     `${__dirname}/dev-data/data/tours-simple.json`,
     JSON.stringify(tours),
