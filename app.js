@@ -98,6 +98,9 @@ app.patch('/api/v1/tours', updateTour);
 
 app.delete('/api/v1/tours', deleteTour);
 
+app.route('/api/v1/tours').get(getAllTours).post(createTour);
+app.route('/api/v1/tours/id').patch(updateTour).delete(deleteTour);
+
 const port = 3000;
 
 app.listen(port, () => {
