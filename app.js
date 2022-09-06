@@ -28,7 +28,7 @@ app.get('/api/v1/users', (req, res) => {
 
 app.post('/api/v1/tours', (req, res) => {
   //console.log(req.body);
-  res.send(tours);
+  res.send('done');
 });
 const port = 3000;
 
