@@ -140,8 +140,6 @@ const deleteUser = (req, res) => {
 // app.patch('/api/v1/tours', updateTour);
 
 // app.delete('/api/v1/tours', deleteTour);
-app.use('/api/v1/tours', tourRouter);
-app.use('/api/v1/users', userRouter);
 
 const tourRouter = express.Router();
 const userRouter = express.Router();
@@ -156,6 +154,9 @@ app
   .get(getUser)
   .patch(updateUser)
   .delete(deleteUser);
+
+app.use('/api/v1/tours', tourRouter);
+app.use('/api/v1/users', userRouter);
 
 const port = 3000;
 
