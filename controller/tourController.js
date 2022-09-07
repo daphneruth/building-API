@@ -12,6 +12,7 @@ exports.checkId = (req, res, next, val) => {
       message: 'invalid id',
     });
   }
+  next();
 };
 
 exports.checkBody = (req, res, next, val) => {
