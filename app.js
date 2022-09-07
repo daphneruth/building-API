@@ -6,6 +6,7 @@ const userRouter = require('./Routes/userRoute');
 
 const app = express();
 
+// MIDDLEWARES
 app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
 
