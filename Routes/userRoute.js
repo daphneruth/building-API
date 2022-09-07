@@ -1,6 +1,6 @@
 const express = require('express');
 
-const userRouter = express.Router();
+const router = express.Router();
 
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
@@ -42,3 +42,5 @@ userRouter.route('/').get(getAllUsers).post(createUser);
 userRouter.route('/:id').get(getUser).patch(updateUser).delete(deleteUser);
 
 app.use('/api/v1/users', userRouter);
+
+module.exports = router;

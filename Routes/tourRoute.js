@@ -1,6 +1,6 @@
 const express = require('express');
 
-const tourRouter = express.Router();
+const router = express.Router();
 
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
@@ -87,3 +87,5 @@ tourRouter.route('/').get(getAllTours).post(createTour);
 tourRouter.route('/:id').get(getTour).patch(updateTour).delete(deleteTour);
 
 app.use('/api/v1/tours', tourRouter);
+
+module.exports = router;
