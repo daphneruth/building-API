@@ -3,12 +3,12 @@ const userController = require('./../controller/userController');
 
 const router = express.Router();
 
-userRouter
+router
   .route('/')
   .get(userController.getAllUsers)
   .post(userController.createUser);
 
-userRouter
+router
   .route('/:id')
   .get(userController.getUser)
   .patch(userController.updateUser)
