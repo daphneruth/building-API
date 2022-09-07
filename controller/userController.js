@@ -4,31 +4,31 @@ const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
 );
 
-const getAllUsers = (req, res) => {
+exports.getAllUsers = (req, res) => {
   res.status(500).json({
     status: 'error',
     message: 'this route is not yet defined',
   });
 };
-const getUser = (req, res) => {
+exports.getUser = (req, res) => {
   res.status(500).json({
     status: 'error',
     message: 'this route is not yet defined',
   });
 };
-const createUser = (req, res) => {
+exports.createUser = (req, res) => {
   res.status(500).json({
     status: 'error',
     message: 'this route is not yet defined',
   });
 };
-const updateUser = (req, res) => {
+exports.updateUser = (req, res) => {
   res.status(500).json({
     status: 'error',
     message: 'this route is not yet defined',
   });
 };
-const deleteUser = (req, res) => {
+exports.deleteUser = (req, res) => {
   res.status(500).json({
     status: 'error',
     message: 'this route is not yet defined',
