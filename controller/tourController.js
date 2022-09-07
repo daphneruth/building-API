@@ -16,12 +16,13 @@ exports.checkId = (req, res, next, val) => {
 };
 
 exports.checkBody = (req, res, next, val) => {
-  if (!req.params.name && req.params.price) {
+  if (!req.body.name || req.body.price) {
     return res.status(400).json({
-      status: 'bad request',
-      message: 'invalid name and price',
+      status: 'fail',
+      message: 'missing name or price',
     });
   }
+  next();
 };
 
 exports.getAllTours = (req, res) => {
