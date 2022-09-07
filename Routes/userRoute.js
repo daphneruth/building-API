@@ -41,6 +41,4 @@ userRouter.route('/').get(getAllUsers).post(createUser);
 
 userRouter.route('/:id').get(getUser).patch(updateUser).delete(deleteUser);
 
-app.use('/api/v1/users', userRouter);
-
 module.exports = router;
