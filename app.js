@@ -13,10 +13,6 @@ app.use((req, res, next) => {
   next();
 });
 
-const tours = JSON.parse(
-  fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
-);
-
 const getAllUsers = (req, res) => {
   res.status(500).json({
     status: 'error',
@@ -57,8 +53,6 @@ const deleteUser = (req, res) => {
 // app.patch('/api/v1/tours', updateTour);
 
 // app.delete('/api/v1/tours', deleteTour);
-
-const userRouter = express.Router();
 
 userRouter.route('/').get(getAllUsers).post(createUser);
 
