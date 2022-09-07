@@ -85,3 +85,5 @@ const deleteTour = (req, res) => {
 tourRouter.route('/').get(getAllTours).post(createTour);
 
 tourRouter.route('/:id').get(getTour).patch(updateTour).delete(deleteTour);
+
+app.use('/api/v1/tours', tourRouter);

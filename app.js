@@ -13,37 +13,6 @@ app.use((req, res, next) => {
   next();
 });
 
-const getAllUsers = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'this route is not yet defined',
-  });
-};
-const getUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'this route is not yet defined',
-  });
-};
-const createUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'this route is not yet defined',
-  });
-};
-const updateUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'this route is not yet defined',
-  });
-};
-const deleteUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'this route is not yet defined',
-  });
-};
-
 //  ROUTES
 // app.get('/api/v1/tours', getAllTours);
 // app.get('/api/v1/tours/id', getTour);
@@ -53,9 +22,6 @@ const deleteUser = (req, res) => {
 // app.patch('/api/v1/tours', updateTour);
 
 // app.delete('/api/v1/tours', deleteTour);
-
-app.use('/api/v1/tours', tourRouter);
-app.use('/api/v1/users', userRouter);
 
 // START SERVER
 
