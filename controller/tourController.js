@@ -5,7 +5,6 @@ const tours = JSON.parse(
 );
 
 exports.checkId = (req, res, next, val) => {
-  console.log(`the id is ${val}`);
   if (req.params.id * 1 > tours.length) {
     return res.status(404).json({
       status: 'fail',
@@ -26,7 +25,6 @@ exports.checkBody = (req, res, next, val) => {
 };
 
 exports.getAllTours = (req, res) => {
-  console.log(req.requestTime);
   res.status(200).json({
     status: 'success',
     requestAt: req.requestTime,
