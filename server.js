@@ -42,7 +42,9 @@ const testTour = new Tour({
 });
 testTour
   .save()
-  .then((doc) => {})
+  .then((doc) => {
+    console.log(doc);
+  })
   .catch((err) => console.log('Error'));
 
 const port = process.env.PORT || 3000;
