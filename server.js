@@ -40,6 +40,7 @@ const testTour = new Tour({
   ratings: 4.7,
   price: 497,
 });
+testTour.save();
 
 const port = process.env.PORT || 3000;
 
