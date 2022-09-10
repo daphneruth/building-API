@@ -40,7 +40,10 @@ const testTour = new Tour({
   ratings: 4.7,
   price: 497,
 });
-testTour.save();
+testTour
+  .save()
+  .then((doc) => {})
+  .catch((err) => console.log('Error'));
 
 const port = process.env.PORT || 3000;
 
