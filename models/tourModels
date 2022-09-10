@@ -6,4 +6,8 @@ const tourSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  rating: {
+    type: Number,
+    default: 4.5,
+  },
 });
