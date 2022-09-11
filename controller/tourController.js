@@ -52,10 +52,13 @@ exports.getTour = (req, res) => {
 exports.createTour = (req, res) => {
   //console.log(req.body);
 
-  const newId = tours[tours.length - 1].id + 1;
-  const newTour = { id: newId, ...req.body };
+  const newTour = new Tour({});
+  newTour.save();
 
-  tours.push(newTour);
+  //const newId = tours[tours.length - 1].id + 1;
+  // const newTour = { id: newId, ...req.body };
+
+  // tours.push(newTour);
 
   //   fs.writeFile(
   //     `${__dirname}/dev-data/data/tours-simple.json`,
