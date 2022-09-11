@@ -1,5 +1,7 @@
 const fs = require('fs');
 
+const Tour = require('Tour');
+
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
 );
