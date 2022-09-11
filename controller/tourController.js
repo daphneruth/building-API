@@ -63,13 +63,9 @@ exports.createTour = (req, res) => {
     (err) => {
       res.status(201).json({
         status: 'success',
-        data: {
-          tour: newTour,
-        },
-      });
-    }
+      }
   );
-};
+});
 
 exports.updateTour = (req, res) => {
   res.status(200).json({
