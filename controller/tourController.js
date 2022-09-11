@@ -49,12 +49,23 @@ exports.getTour = (req, res) => {
     // },
   });
 };
-exports.createTour = (req, res) => {
+exports.createTour = async (req, res) => {
   //console.log(req.body);
+  try {
+    const newTour = await Tour.create(req.body);
 
-  const newTour = new Tour({});
-  newTour.save();
-
+    res.status(201).json({
+      status: 'success',
+      data: {
+        tour: newTour,
+      },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: err,
+    });
+  }
   //const newId = tours[tours.length - 1].id + 1;
   // const newTour = { id: newId, ...req.body };
 
