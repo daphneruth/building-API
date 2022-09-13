@@ -26,10 +26,10 @@ exports.checkId = (req, res, next, val) => {
 //   next();
 // };
 
-exports.getAllTours = (req, res) => {
+exports.getAllTours = async (req, res) => {
+  const tours = await Tour.Tour.find();
   res.status(200).json({
     status: 'success',
-    requestAt: req.requestTime,
     result: tours.length,
     // data: {
     //   tours,
