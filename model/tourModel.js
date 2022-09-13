@@ -41,7 +41,19 @@ const tourSchema = new mongoose.Schema({
   imageCover: {
     type: String,
     required: [true, 'A tour must have a cover image'],
+  },images: [String],
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+    select: false
   },
+  startDates: [Date],
+  secretTour: {
+    type: Boolean,
+    default: false
+  }
+},
+  
 });
 
 const Tour = mongoose.model('Tour', tourSchema);
