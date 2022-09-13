@@ -31,3 +31,14 @@ const importData = async () => {
     console.log(err);
   }
 };
+
+//deleting data from database
+
+const deleteData = async () => {
+  try {
+    await Tour.deleteMany();
+    console.log('Data successfully deleted!');
+  } catch (err) {
+    console.log(err);
+  }
+};
