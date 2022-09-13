@@ -1,5 +1,5 @@
 const fs = require('fs');
-const Tour = require('./../models/tourModel');
+const Tour = require('./../model/tourModel');
 
 //exports.checkId = (req, res, next, val) => {
 

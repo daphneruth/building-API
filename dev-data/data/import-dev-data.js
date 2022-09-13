@@ -1,7 +1,7 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const Tour = require('./../../models/tourModel');
+const Tour = require('./../../model/tourModel');
 
 dotenv.config({ path: './config.env' });
 
@@ -42,3 +42,5 @@ const deleteData = async () => {
     console.log(err);
   }
 };
+
+console.log(process.argv);
