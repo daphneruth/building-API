@@ -1,15 +1,16 @@
 const fs = require('fs');
 const Tour = require('./../models/tourModel');
 
-exports.checkId = (req, res, next, val) => {
-  if (req.params.id * 1 > tours.length) {
-    return res.status(404).json({
-      status: 'fail',
-      message: 'invalid id',
-    });
-  }
-  next();
-};
+//exports.checkId = (req, res, next, val) => {
+
+//   if (req.params.id * 1 > tours.length) {
+//     return res.status(404).json({
+//       status: 'fail',
+//       message: 'invalid id',
+//     });
+//   }
+//   next();
+// };
 
 exports.getAllTours = async (req, res) => {
   try {
