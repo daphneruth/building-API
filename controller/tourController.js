@@ -31,9 +31,9 @@ exports.getAllTours = async (req, res) => {
   res.status(200).json({
     status: 'success',
     result: tours.length,
-    // data: {
-    //   tours,
-    // },
+    data: {
+      tours,
+    },
   });
 };
 
@@ -43,9 +43,9 @@ exports.getTour = (req, res) => {
 
   res.status(200).json({
     status: 'success',
-    // result: tours.length,
-    // data: {
-    //   tour,
+    result: tours.length,
+    //data: {
+    // tour,
     // },
   });
 };
