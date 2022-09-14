@@ -113,7 +113,7 @@ exports.getAllTours = async (req, res) => {
     // }
     ///EXECUTING QUERY
 
-    const tours = await query;
+    const tours = await features.query;
 
     ///SENDING RESPONSE
     res.status(200).json({
