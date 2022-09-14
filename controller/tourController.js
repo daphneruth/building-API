@@ -59,58 +59,6 @@ class APIFeatures {
 }
 exports.getAllTours = async (req, res) => {
   try {
-    //BUILDING QUERY
-    //1A) Filtering
-    // const queryObj = { ...req.query };
-    // const excludeFields = ['page', 'sort', 'limit', 'fields'];
-
-    // excludeFields.forEach((el) => delete queryObj[el]);
-
-    // // console.log(req.query, queryObj);
-
-    // const tour = JSON.parse(queryStr);
-
-    // //1B) Advanced filtering
-
-    // let queryStr = JSON.stringify(queryObj);
-
-    // queryStr = queryStr.replace(
-    //   /\b (gte|gt|lte|lt) \b/g,
-    //   (match) => `$${match}`
-    // );
-
-    // let query = Tour.find(JSON.parse(queryStr));
-
-    //2) SORTING
-
-    // if (req.query.sort) {
-    //   const sortBy = req.query.sort.split(',').join('');
-
-    //   query = query.sort(sortBy);
-    // } else {
-    //   query = query.sort('createdAt');
-
-    //   //FIELD LIMITING
-    //   if (req.query.fields) {
-    //     const fields = req.query.fields.split(',').join('');
-    //     query = query.select(fields);
-    //   } else {
-    //     query = query.select('-__v');
-    //   }
-    // }
-
-    // PAGINATION
-    // const page = req.query.page * 1 || 1;
-    // const limit = req.query.limit * 1 || 1;
-    // const skip = (page - 1) * limit;
-
-    // query = query.skip(skip).limit(limit);
-
-    // if (req.query.page) {
-    //   const numTours = await Tour.countDocuments();
-
-    //   if (skip >= numTours) throw new Error('This Page Does Not Exist');
-    // }
     ///EXECUTING QUERY
     const features = new APIFeatures(Tour.find(), req.query)
       .filter()
@@ -172,20 +120,6 @@ exports.createTour = async (req, res) => {
       message: err,
     });
   }
-  //const newId = tours[tours.length - 1].id + 1;
-  // const newTour = { id: newId, ...req.body };
-
-  // tours.push(newTour);
-
-  //   fs.writeFile(
-  //     `${__dirname}/dev-data/data/tours-simple.json`,
-  //     JSON.stringify(tours),
-  //     (err) => {
-  //       res.status(201).json({
-  //         status: 'success',
-  //       });
-  //     }
-  //   );
 };
 exports.updateTour = async (req, res) => {
   try {
