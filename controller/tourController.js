@@ -2,17 +2,6 @@ const { query } = require('express');
 const fs = require('fs');
 const Tour = require('./../model/tourModel');
 
-//exports.checkId = (req, res, next, val) => {
-
-//   if (req.params.id * 1 > tours.length) {
-//     return res.status(404).json({
-//       status: 'fail',
-//       message: 'invalid id',
-//     });
-//   }
-//   next();
-// };
-
 exports.aliasTopTours = (req, res, next) => {
   req.query.limit = '5';
   req.query.sort = '-ratingsAverage,price';
@@ -20,29 +9,47 @@ exports.aliasTopTours = (req, res, next) => {
   next();
 };
 
+class APIFeatures {
+  constructor(query, queryString) {
+    this.query = query;
+    this.queryString = queryString;
+  }
+
+  filter() {
+    const queryObj = { ...this.queryString };
+    const excludedFields = ['page', 'sort', 'limit', 'fields'];
+    excludedFields.forEach((el) => delete queryObj[el]);
+
+    // 1B) Advanced filtering
+    let queryStr = JSON.stringify(queryObj);
+    queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
+
+    this.query = this.query.find(JSON.parse(queryStr));
+  }
+}
 exports.getAllTours = async (req, res) => {
   try {
     //BUILDING QUERY
     //1A) Filtering
-    const queryObj = { ...req.query };
-    const excludeFields = ['page', 'sort', 'limit', 'fields'];
+    // const queryObj = { ...req.query };
+    // const excludeFields = ['page', 'sort', 'limit', 'fields'];
 
-    excludeFields.forEach((el) => delete queryObj[el]);
+    // excludeFields.forEach((el) => delete queryObj[el]);
 
-    // console.log(req.query, queryObj);
+    // // console.log(req.query, queryObj);
 
-    const tour = JSON.parse(queryStr);
+    // const tour = JSON.parse(queryStr);
 
-    //1B) Advanced filtering
+    // //1B) Advanced filtering
 
-    let queryStr = JSON.stringify(queryObj);
+    // let queryStr = JSON.stringify(queryObj);
 
-    queryStr = queryStr.replace(
-      /\b (gte|gt|lte|lt) \b/g,
-      (match) => `$${match}`
-    );
+    // queryStr = queryStr.replace(
+    //   /\b (gte|gt|lte|lt) \b/g,
+    //   (match) => `$${match}`
+    // );
 
-    let query = Tour.find(JSON.parse(queryStr));
+    // let query = Tour.find(JSON.parse(queryStr));
 
     //2) SORTING
 
