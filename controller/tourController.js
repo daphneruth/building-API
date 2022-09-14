@@ -30,7 +30,7 @@ exports.getAllTours = async (req, res) => {
 
     const queryStr = JSON.stringify(queryObj);
     queryStr.replace(/\b (gte|gt|lte|lt) \b/g, (match) => `$${match}`);
-
+    console.log(JSON.parse(queryStr));
     ///EXECUTING QUERY
 
     const query = await query;
