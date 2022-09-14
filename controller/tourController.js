@@ -22,21 +22,28 @@ exports.getAllTours = async (req, res) => {
 
     excludeFields.forEach((el) => delete queryObj[el]);
 
-    console.log(req.query, queryObj);
+    // console.log(req.query, queryObj);
 
-    const tour = JSON.parse(queryStr)
+    const tour = JSON.parse(queryStr);
 
     //1B) Advanced filtering
 
     let queryStr = JSON.stringify(queryObj);
-    
-    queryStr = queryStr.replace(/\b (gte|gt|lte|lt) \b/g,(match) => `$${match}`);
-    
-    console.log(JSON.parse(queryStr));
-    
+
+    queryStr = queryStr.replace(
+      /\b (gte|gt|lte|lt) \b/g,
+      (match) => `$${match}`
+    );
+
+    query = Tour.find(JSON.parse(queryStr));
+
     //2) SORTING
-    
-    let
+
+    if (req.query.sort) {
+      const sortBy = req.query.sort.split(',').join('');
+
+      query = query.sort(sortBy);
+    }
     ///EXECUTING QUERY
 
     const query = await query;
