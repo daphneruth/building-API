@@ -1,3 +1,4 @@
+const { query } = require('express');
 const fs = require('fs');
 const Tour = require('./../model/tourModel');
 
@@ -25,7 +26,7 @@ exports.getAllTours = async (req, res) => {
 
     ///EXECUTING QUERY
 
-    const query = await Tour;
+    const query = await query;
 
     ///SENDING RESPONSE
     res.status(200).json({
