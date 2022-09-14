@@ -112,6 +112,11 @@ exports.getAllTours = async (req, res) => {
     //   if (skip >= numTours) throw new Error('This Page Does Not Exist');
     // }
     ///EXECUTING QUERY
+    const features = new APIFeatures(Tour.find(), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
 
     const tours = await features.query;
 
