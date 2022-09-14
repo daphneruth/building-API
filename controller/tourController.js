@@ -34,6 +34,7 @@ class APIFeatures {
     } else {
       this.query = this.query.sort('-createdAt');
     }
+    return this;
   }
 
   limitFields() {
@@ -43,6 +44,7 @@ class APIFeatures {
     } else {
       this.query = this.query.select('-__v');
     }
+    return this;
   }
 }
 exports.getAllTours = async (req, res) => {
