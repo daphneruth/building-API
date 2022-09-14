@@ -21,7 +21,7 @@ exports.getAllTours = async (req, res) => {
 
     console.log(req.query, queryObj);
 
-    const tours = await Tour.find(req.query);
+    const tours = await Tour.find(queryObj);
     res.status(200).json({
       status: 'success',
       result: tours.length,
