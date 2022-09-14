@@ -109,4 +109,6 @@ exports.deleteTour = async (req, res) => {
       message: err,
     });
   }
+  
+  exports.getTourStats = async (req, res) => {};
 };
