@@ -1,6 +1,7 @@
 const { query } = require('express');
 const fs = require('fs');
 const Tour = require('./../model/tourModel');
+const APIFeatures = require('./../utils/apiFeatures');
 
 exports.aliasTopTours = (req, res, next) => {
   req.query.limit = '5';
