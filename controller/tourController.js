@@ -35,7 +35,7 @@ exports.getAllTours = async (req, res) => {
       (match) => `$${match}`
     );
 
-    query = Tour.find(JSON.parse(queryStr));
+    let query = Tour.find(JSON.parse(queryStr));
 
     //2) SORTING
 
@@ -46,7 +46,7 @@ exports.getAllTours = async (req, res) => {
     }
     ///EXECUTING QUERY
 
-    const query = await query;
+    const tours = await query;
 
     ///SENDING RESPONSE
     res.status(200).json({
