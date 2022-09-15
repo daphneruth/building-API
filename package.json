@@ -23,7 +23,8 @@
     "express": "^4.18.1",
     "express-params": "^0.0.3",
     "mongoose": "^6.6.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "slugify": "^1.6.5"
   },
   "devDependencies": {
     "eslint": "^8.23.0",
