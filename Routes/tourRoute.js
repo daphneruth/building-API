@@ -2,7 +2,6 @@ const express = require('express');
 const tourController = require('../controller/tourController');
 
 const router = express.Router();
-//router.params('id', tourController.checkId);
 
 router
   .route('/top-5-cheap')
