@@ -72,7 +72,7 @@ tourSchema.pre('save', function (next) {
   next();
 });
 
-.// QUERY MIDDLEWARE
+// QUERY MIDDLEWARE
 
 // tourSchema.pre('find', function(next) {
 tourSchema.pre(/^find/, function (next) {
